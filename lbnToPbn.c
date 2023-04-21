@@ -28,10 +28,6 @@ uint64_t lbnToPbn(CS313inode_t *inode, uint64_t lbn, uint64_t block_size, block_
 {
     const uint64_t ptrsPerBlock = block_size / sizeof(uint64_t);
 
-    // if (lbn > ptrsPerBlock + NUM_INDIRECT * ptrsPerBlock * ptrsPerBlock + HAS_3INDIRECT * ptrsPerBlock * ptrsPerBlock * ptrsPerBlock * ptrsPerBlock) {
-    //      return BAD_PBN;
-    // }
-
     if (lbn * block_size > inode->i_size) {
         return BAD_PBN;
     }
